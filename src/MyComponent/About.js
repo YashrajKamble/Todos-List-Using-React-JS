@@ -2,7 +2,7 @@ import React from "react";
 
 export const About = () => {
   return (
-    <div>
+    <div >
       this is an about component
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet incidunt,
