@@ -3,6 +3,7 @@ import Header from "./MyComponent/Header";
 import { Footer } from "./MyComponent/Footer";
 import { Todos } from "./MyComponent/Todos";
 import React, { useState } from "react";
+import { AddTodo } from "./MyComponent/AddTodo";
 
 function App() {
   const onDelete = (todo) => {
@@ -36,7 +37,8 @@ function App() {
   ]);
   return (
     <>
-      <Header title="My Todos List " searchBar={false} />
+      <Header title="My Todos List " searchBar={true} />
+      <AddTodo />
       <Todos todos={todos} onDelete={onDelete} />
       <Footer />
     </>
