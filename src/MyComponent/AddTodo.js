@@ -1,28 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const AddTodo = () => {
+export const AddTodo = (props) => {
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    if 
+    (!title || !desc) {
+      alert("title or description cannot be blank");
+    } else 
+    props.addTodo(title, desc);
+    setTitle("");
+    setDesc("");
+  };
+
   return (
     <div className="container my-3">
       <h3>Add a ToDo</h3>
-      <form>
-        <div class="mb-3">
-          <label for="title" class="form-label">
+      <form onSubmit={submit}>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">
             Add Title
           </label>
           <input
             type="text"
-            class="form-control"
+            value={title}
+            className="form-control"
             id="title"
             aria-describedby="emailHelp"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
           />
         </div>
-        <div class="mb-3">
-          <label for="desc" class="form-label">
+
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
             ToDo Description
           </label>
-          <input type="text" class="form-control" id="desc" />
+          <input
+            type="text"
+            className="form-control"
+            id="desc"
+            value={desc}
+            onChange={(e) => {
+              setDesc(e.target.value);
+            }}
+          />
         </div>
-        <button type="submit" class="btn btn-success">
+
+        <button type="submit" className="btn btn-success">
           Submit
         </button>
       </form>
